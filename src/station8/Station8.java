@@ -11,11 +11,21 @@ public class Station8 {
 
     public static HashSet<String> aggregateUserId(ArrayList<Order> orders) {
         // 問題1: ここから
+        HashSet<String> userIds = new HashSet<>();
+        for (Order order : orders) {
+            userIds.add(order.userId);
+        }
+        return userIds;
         // 問題1: ここまで
     }
 
     public static HashMap<String, Integer> aggregateUserAndTotalPrice(ArrayList<Order> orders) {
         // 問題2: ここから
+        HashMap<String, Integer> userTotalPrice = new HashMap<>();
+        for (Order order : orders){
+            userTotalPrice.put(order.userId, userTotalPrice.getOrDefault(order.userId, 0) + order.totalPrice);
+        }
+        return userTotalPrice;
         // 問題2: ここまで
     }
 }
